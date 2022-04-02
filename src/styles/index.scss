@@ -131,11 +131,39 @@ a{
     left:0;
     height:100vh;
     width: 260px;
+    z-index: 999;
     background-color: var(--background-color);
     box-shadow: 0 0 0 1000px rgba(0,0,0,0.2),
         3px 0 5px var(--shadow-color);
+    animation: getAnimationDuration(.6s) slideInLeft;
+    .sidebar-link{
+        margin-top: 1em;
+        display: block;
+        padding: .5em 1em;
+        border-left: 0.4em solid transparent; 
+        margin-bottom: 1em;
+        color: black;
+        font-weight: bold;
+        font-size: 1.1em;
+        transform: translateX();
+        animation: getAnimationDuration(.6s) slideInLeft forwards;
+        @for $i from 1 to 3 {
+            &:nth-child(#{$i}){
+                animation-delay: #{$i * .1}s;
+            }
+        }
+        &:hover{
+            border-left-color: var(--primary-color);
+            background-color: rgba(0,0,0,0.05);
+        }
+        svg{
+            width: 1.2em;
+            margin-left: .5em;
+            margin-right: .5em;
+        }
+    }
 }
-
+@import "partials/animations.scss";
 @media screen and (max-width:768px) {
     .navbar{
         .nav-links{
