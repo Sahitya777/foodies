@@ -8,6 +8,11 @@
     --font-size:16px;
     --animation-speed:1;
 }
+
+@function getAnimationDuration($duration:number){
+    @return calc($duration *var(--animation-speed));
+}
+
 body{
     font-size: var(--font-size);
     font-family: 'Roboto',sans-serif;
@@ -46,6 +51,7 @@ a{
             letter-spacing: 2px;
             text-transform: uppercase;
             position: relative;
+            font-size: 0.9em;
             &::before{
                 content: '';
                 display: inline-block;
@@ -69,7 +75,74 @@ a{
             }
         }
     }
+    .sidebar-btn{
+        height: 25px;
+        width: 30px;
+        display: none;
+        color: white;
+        position: relative;
+        .bar{
+            border-radius: 5px;
+            height:6px;
+            width:100%;
+            background-color: black;
+            position: absolute;
+            transition: transform getAnimationDuration(.2s) ease-in-out;
+            &:nth-child(1){
+                top: 0;           
+            }
+            &:nth-child(2){
+                top: 50%;
+                transform-origin: right;
+                transform:scaleX(.8) translateY(-50%);
+            }
+            &:nth-child(3){
+                top: 100%;
+                transform-origin: right;
+                transform: scaleX(1.1) translateY(-100%);
+
+
+            }
+        }
+        &.active{
+            .bar{
+                transform-origin: center;
+                top: 50%;
+                &:nth-child(1){
+                    transform: translate(0,-50%) scale(1) rotate(45deg) ;
+                }
+                &:nth-child(2){
+                    transform: scaleX(0) translateY(-50%);
+                }
+                &:nth-child(3){
+                    transform: translate(0,-50%) scale(1) rotate(-45deg) ;
+                }
+            }
+        }
+    }
 }
 .container{
     padding-inline: 20vw;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left:0;
+    height:100vh;
+    width: 260px;
+    background-color: var(--background-color);
+    box-shadow: 0 0 0 1000px rgba(0,0,0,0.2),
+        3px 0 5px var(--shadow-color);
+}
+
+@media screen and (max-width:768px) {
+    .navbar{
+        .nav-links{
+            display: none;
+        }
+        .sidebar-btn{
+            display: block;
+        }
+    }
 }
