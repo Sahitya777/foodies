@@ -110,6 +110,7 @@
         padding: .5em 1em;
         border-left: 0.4em solid transparent; 
         margin-bottom: 1em;
+        
         color: black;
         font-weight: bold;
         font-size: 1.1em;
@@ -122,7 +123,7 @@
         }
         &:hover{
             border-left-color: var(--primary-color);
-            background-color: rgba(0,0,0,0.05);
+            
         }
         svg{
             width: 1.2em;
