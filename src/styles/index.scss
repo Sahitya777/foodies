@@ -30,17 +30,18 @@ img{
     object-fit: cover;
 }
 .container{
-    padding-inline: 20vw;
+    padding-inline: 16vw;
 }
 @import "partials/navbar.scss";
 @import "partials/animations.scss";
 .section{
     display: flex;
     align-items: center;
+    margin-bottom: 3vw;
     .title{
         color: black;
         font-size: 3em;
-        margin-bottom: .25em;
+        margin-bottom: .55em;
     }
     .info{
         color: var(--text-light);
@@ -85,48 +86,36 @@ img{
         height: 100%;
     }
 }
-.section.hero{
-    .typography{
-        padding-right: 1em;
+@import "partials/hero-section.scss";
+
+.section.improve-skills{
+    .col.img{
+        img{
+            width: 100%;
+        }
     }
-    .gallery{
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        gap:1.7vw;
-        .custom-image{
-            border-radius: 3px;
-            overflow: hidden;
-            transform: scale(0);
+    .col.typography{
+        padding-left: 1em;
+        .skill-item{
+            border-left: .2em solid var(--primary-color);
+            margin-bottom: .5em;
+            padding: .2em 0 .1em .5em;
+            color: var(--text-light);
+            font-weight: bold;  
+            transform: translateX(100%);
             opacity: 0;
-            animation: getAnimationDuration(.5s) popOut forwards;
-            &:nth-child(2){
-                animation-delay: .1s;
+            animation: getAnimationDuration(.5s) slideInRight forwards; 
+            @for $i from 2 through 7 {
+                &:nth-child(#{$i}){
+                    animation-delay: #{$i * .1}s;
+                }
             }
-            &:nth-child(3){
-                animation-delay: .2s;
-            }
-            &:nth-child(6){
-                animation-delay: .3s;
-            }
-            &:nth-child(9){
-                animation-delay: .4s;
-            }
-            &:nth-child(8){
-                animation-delay: .5s;
-            }
-            &:nth-child(7){
-                animation-delay: .6s;
-            }
-            &:nth-child(4){
-                animation-delay: .7s;
-            }
-            &:nth-child(5){
-                animation-delay: .8s;
-            }
+        }
+        .btn{
+            margin-top: .75em;
         }
     }
 }
-
 @media screen and (max-width:768px) {
     .navbar{
         .nav-links{
