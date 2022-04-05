@@ -3,6 +3,7 @@ import HeroSection from "./components/HeroSection";
 import ImproveSkills from "./components/ImproveSkills";
 import QuoteSection from "./components/QuoteSection";
 import ChefSection from "./components/ChefSection";
+import Footer from "./components/Footer";
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
         <QuoteSection />
         <ChefSection />
       </div>
+      <Footer/>
     </div>
   );
 }
