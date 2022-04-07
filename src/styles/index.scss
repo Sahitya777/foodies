@@ -89,28 +89,29 @@ img{
         height: 100%;
     }
 }
-.footer{
-    background-color: #0f0f0f;
-    color: #fff;
-    padding-block: 2.5em; 
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-gap: 1em;
-    .footer-section{
-        p{
-            opacity: .8;
-            margin-bottom: .5em;
-        }
-        p.title{
-            opacity: 1;
-            font-size: 1.1em;
-            font-weight: bold;
-            margin-bottom: 1em;
-        }
 
+.previous-searches{
+    display: block;
+    h2{
+        color: black;
+        margin-bottom: 1em;
     }
-
+    .previous-searches-container{
+        .search-items{
+            background-color: var(--primary-color);
+            display: inline-block;
+            padding: 0.5em 1em;
+            margin:0 .5em 1em 0;
+            color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 3px 6px var(--shadow-color);
+            animation: getAnimationDuration(.5s) slideInRight;
+            
+        }
+    }
 }
+
+@import "partials/footer.scss";
 @import "partials/hero-section.scss";
 @import "partials/quote-section.scss";
 @import "partials/chef-section.scss";
