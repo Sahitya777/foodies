@@ -89,28 +89,8 @@ img{
         height: 100%;
     }
 }
-
-.previous-searches{
-    display: block;
-    h2{
-        color: black;
-        margin-bottom: 1em;
-    }
-    .previous-searches-container{
-        .search-items{
-            background-color: var(--primary-color);
-            display: inline-block;
-            padding: 0.5em 1em;
-            margin:0 .5em 1em 0;
-            color: #fff;
-            border-radius: 30px;
-            box-shadow: 0 3px 6px var(--shadow-color);
-            animation: getAnimationDuration(.5s) slideInRight;
-            
-        }
-    }
-}
-
+@import "partials/recipe-section.scss";
+@import "partials/previous-searches.scss";
 @import "partials/footer.scss";
 @import "partials/hero-section.scss";
 @import "partials/quote-section.scss";
