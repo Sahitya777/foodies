@@ -24,8 +24,23 @@ function Settings() {
         value: "20px"
     }
 ]
+const animationSpeeds = [
+  {
+        title: "Slow",
+        value: 2
+  },
+  {
+        title: "Medium",
+        value: 1
+  },
+  {
+        title: "Fast",
+        value: .5
+  }
+]
   const [primaryColor,setPrimaryColor]=useState(0)
   const [fontSize,setFontSize]=useState(1)
+  const [animationSpeed,setAnimationSpeed]=useState(1)
   return (
     <div>
         <div className="section d-block">
@@ -52,7 +67,7 @@ function Settings() {
           <div className="options-container">
                 {primaryColors.map((color,index)=>(
                   <div className="option light" style={{backgroundColor: color}}>
-                  {primaryColor==index &&(
+                  {primaryColor===index &&(
                     <div className="check">
                       <FontAwesomeIcon icon={faCheck}/>
                     </div>
@@ -67,7 +82,20 @@ function Settings() {
                 {fontSizes.map((size,index)=>(
                     <button className="btn">
                       <span>{size.title} </span>                    
-                      {fontSize==index&& <FontAwesomeIcon icon={faCheck}/>}
+                      {fontSize===index&& <FontAwesomeIcon icon={faCheck}/>}
+                    </button>
+                  
+                  
+                ))}
+          </div>
+        </div>
+        <div className="section d-block">
+          <h2>Animation Speed</h2>
+          <div className="options-container">
+                {animationSpeeds.map((speed,index)=>(
+                    <button className="btn">
+                      <span>{speed.title} </span>                    
+                      {animationSpeed===index&& <FontAwesomeIcon icon={faCheck}/>}
                     </button>
                   
                   
