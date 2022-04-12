@@ -14,13 +14,15 @@ function Settings() {
     "--font-size": "16px",
     "--animation-speed": 1
 })
+localStorage.settings=JSON.stringify(settings);
+var stored=JSON.parse(localStorage.settings);
 
 useEffect(()=>{
   const root=document.documentElement
-  for(let key in settings){
-    root.style.setProperty(key,settings[key])
+  for(let key in stored){
+    root.style.setProperty(key,stored[key])
   }
-},[settings])
+},[stored])
 
 const themes = [
   {
@@ -76,6 +78,7 @@ const animationSpeeds = [
 ]
   function changeThemes(i){
     const _theme={...themes[i]}
+    localStorage.setItem('theme-color',_theme)
     setTheme(i===0? "light":"dark")
     let _settings={...settings}
     for(let key in _theme){
