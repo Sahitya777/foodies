@@ -25,7 +25,7 @@ export default function Recipes(){
             title: "Mutton Biriyani",
             image: "/img/gallery/img_6.jpg",
             authorImg: "/img/top-chiefs/img_5.jpg",
-            recipe:"1. Wash mutton thoroughly and drain well. Add ginger garlic paste, salt, turmeric, biryani masala, red chili powder and lemon juice"
+            recipe:"Wash mutton thoroughly and drain well. Add ginger garlic paste, salt, turmeric, biryani masala, red chili powder and lemon juice"
         },
         {
             title: "Japanese Sushi",
@@ -55,7 +55,7 @@ export default function Recipes(){
             title: "Mutton Biriyani",
             image: "/img/gallery/img_6.jpg",
             authorImg: "/img/top-chiefs/img_5.jpg",
-            recipe:"1. Wash mutton thoroughly and drain well. Add ginger garlic paste, salt, turmeric, biryani masala, red chili powder and lemon juice"
+            recipe:"Wash mutton thoroughly and drain well. Add ginger garlic paste, salt, turmeric, biryani masala, red chili powder and lemon juice"
         },
         {
             title: "Japanese Sushi",
@@ -73,7 +73,7 @@ export default function Recipes(){
             title: "Mutton Biriyani",
             image: "/img/gallery/img_6.jpg",
             authorImg: "/img/top-chiefs/img_5.jpg",
-            recipe:"1. Wash mutton thoroughly and drain well. Add ginger garlic paste, salt, turmeric, biryani masala, red chili powder and lemon juice"
+            recipe:"Wash mutton thoroughly and drain well. Add ginger garlic paste, salt, turmeric, biryani masala, red chili powder and lemon juice"
         }
     ].sort(() => Math.random() - 0.5)
 
