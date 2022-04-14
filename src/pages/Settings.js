@@ -14,12 +14,7 @@ function Settings() {
     "--font-size": "16px",
     "--animation-speed": 1
 })
-useEffect(() => {
-  const root = document.documentElement
-  for(let key in settings){
-      root.style.setProperty(key, settings[key])
-  }
-}, [settings])
+
 
 const themes = [
   {
@@ -74,8 +69,7 @@ const animationSpeeds = [
   }
 ]
   function changeThemes(i){
-    const _theme={...themes[i]}
-    
+    const _theme={...themes[i]} 
     setTheme(i===0? "light":"dark")
     let _settings={...settings}
     
@@ -105,6 +99,7 @@ const animationSpeeds = [
     
   }
 
+
   function changeAnimationSpeed(i){
     let _speed = animationSpeeds[i]
     let _settings = {...settings}
@@ -114,10 +109,21 @@ const animationSpeeds = [
     
 }
 
+localStorage.setItem('settingsup',JSON.stringify(settings));
+var update=JSON.parse(localStorage.getItem('settingsup'));
+
+useEffect(() => {
+  const root = document.documentElement
+  for(let key in update){
+      root.style.setProperty(key, update[key])
+  }
+}, [update])
 
   const [primaryColor,setPrimaryColor]=useState(0)
   const [fontSize,setFontSize]=useState(1)
   const [animationSpeed,setAnimationSpeed]=useState(1)
+
+  
   return (
     <div>
         <div className="section d-block">
