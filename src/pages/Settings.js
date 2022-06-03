@@ -2,9 +2,11 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faCheck} from "@fortawesome/free-solid-svg-icons"
 import {useState,useEffect} from "react"
 
+import useLocalStorageState from "../hooks/useLocalStorage"
+
 function Settings() {
  
-  const [settings, setSettings] = useState({
+  const [settings, setSettings] = useLocalStorageState("settings", {
     "--background-color": "#fff",
     "--background-light": "#fff",
     "--primary-color": "rgb(255, 0, 86)",
@@ -14,7 +16,7 @@ function Settings() {
     "--font-size": "16px",
     "--animation-speed": 1
 })
-
+console.log(settings)
 
 const themes = [
   {
@@ -71,13 +73,10 @@ const animationSpeeds = [
   function changeThemes(i){
     const _theme={...themes[i]} 
     setTheme(i===0? "light":"dark")
-    let _settings={...settings}
-    
-    for(let key in _theme){
-      _settings[key]=_theme[key]
-    }
+    console.log(typeof settings)
+    let _settings={...settings, ..._theme}
+    console.log(_settings)
     setSettings(_settings)
-    
   }
 
   function changeColor(i){
@@ -109,15 +108,14 @@ const animationSpeeds = [
     
 }
 
-localStorage.setItem('settingsup',JSON.stringify(settings));
-var update=JSON.parse(localStorage.getItem('settingsup'));
-
 useEffect(() => {
   const root = document.documentElement
-  for(let key in update){
-      root.style.setProperty(key, update[key])
+  for(let key in settings){
+    root.style.setProperty(key, settings[key])
   }
-}, [update])
+}, [settings])
+
+
 
   const [primaryColor,setPrimaryColor]=useState(0)
   const [fontSize,setFontSize]=useState(1)
